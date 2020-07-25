@@ -8,3 +8,6 @@ Desighn High Availability System
 
 No sql Databases
 
+Java HashMap internal Implementation
+
+https://medium.com/@mr.anmolsehgal/java-hashmap-internal-implementation-21597e1efec3
