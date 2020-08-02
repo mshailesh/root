@@ -1,3 +1,8 @@
+#####Read Daily 
+https://entrepreneurshandbook.co/how-to-get-more-done-in-3-hours-than-most-do-in-a-week-c5bcdcff801e
+
+https://humanparts.medium.com/the-10-day-miracle-challenge-15143e857c33
+
 _Core Java_
 
     1. Java Memory Model
@@ -34,6 +39,13 @@ _Data Structure and Algorithm_
     3. Thread Pool Implementation
     4. print even odd
     
+_Cloud_
+
+    1 Docker
+    2 Virtualization vs Containerization
+    3 AKS
+        
+    
 _System Design_
 
     1 Desighn High Availability System
@@ -50,10 +62,35 @@ _Hibernate_
     1. Hibernate n+1 problem
 
 _Front End_
+    Javascript
+        
+    Angular
+        https://www.interviewbit.com/angular-interview-questions/
+        https://medium.com/@tomwhite007/angular-standards-for-2020-d31f401fb90d
+    Typescript
+    Javascript
+        https://codeburst.io/10-javascript-concepts-you-need-to-know-for-interviews-136df65ecce
+    
+######Git HUB Java Repo
+    https://towardsdatascience.com/10-excellent-github-repositories-for-every-java-developer-41084a91ade9
 
-_BookMarks_
+######Scalable Web Architecture
+    https://medium.com/distributed-knowledge/scalable-web-architectures-concepts-design-6fd372ee4541
+###### System Design Interview
+    https://towardsdatascience.com/the-complete-guide-to-the-system-design-interview-ba118f48bdfc
+    https://www.freecodecamp.org/news/systems-design-for-interviews/
     
-- https://javarevisited.blogspot.com/2015/10/133-java-interview-questions-answers-from-last-5-years.html#ixzz6SYcuVSqF
+    https://medium.com/dev-genius/microservices-design-api-gateway-pattern-980e8d02bdd5
+_Java Interview_
     
-- https://www.freecodecamp.org/news/systems-design-for-interviews/
+    https://javarevisited.blogspot.com/2015/10/133-java-interview-questions-answers-from-last-5-years.html#ixzz6SYcuVSqF
+    
+    
+_Philsophy_
+
+    https://humanparts.medium.com/good-enough-is-just-fine-1126b09cbea
+    
+ 
+    
+- 
     
