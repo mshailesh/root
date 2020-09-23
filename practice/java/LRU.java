@@ -12,25 +12,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class LRU {
-    LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
-    private final int capacity;
-
-        if(res == null){
-    public LRU(int cty) {
-        capacity = cty;
-    }
-
-    int get(String key){
-        Integer res = map.get(key);
-            return -1;
-        }
-        // bring it to head
-      map.put(key, map.remove(key));
-
-        return res;
-    }
-
-    int set(String key, int value){
-
-    }
+//    LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
+//    private final int capacity;
+//
+//        if(res == null){
+//    public LRU(int cty) {
+//        capacity = cty;
+//    }
+//
+//    int get(String key){
+//        Integer res = map.get(key);
+//            return -1;
+//        }
+//        // bring it to head
+//      map.put(key, map.remove(key));
+//
+//        return res;
+//    }
+//
+//    int set(String key, int value){
+//
+//    }
 }

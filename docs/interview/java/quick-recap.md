@@ -4,21 +4,23 @@ https://entrepreneurshandbook.co/how-to-get-more-done-in-3-hours-than-most-do-in
 https://humanparts.medium.com/the-10-day-miracle-challenge-15143e857c33
 
 _Core Java_
+You can even [JVM Architecture](https://dzone.com/articles/jvm-architecture-explained)
 
-    1. Java Memory Model
-    2. Garbage Collection in Java
-    3. Performance Tunning in Java
-    4. Serilization, Externalization
-    5. Cloning
-    6. Why String is imutable in java?
-    8. Fale fast vs fail safe
-    9. Exception in java
-    10 Internal Working of Hash Map
-    11 Internal Working of Concurrent Hash Map
-    12 Arraylist vs Linked List
-    13 equals and hash code
-    14 comparable vs comparator
-    
+   
+   1. [JVM Architecture](https://dzone.com/articles/jvm-architecture-explained)
+   2. Garbage Collection in Java
+   3. Performance Tunning in Java
+   4. Serilization, Externalization
+   5. Cloning
+   6. Why String is imutable in java?
+   8. Fale fast vs fail safe
+   9. Exception in java
+   10 Internal Working of Hash Map
+   11 Internal Working of Concurrent Hash Map
+   12 Arraylist vs Linked List
+   13 equals and hash code
+   14 comparable vs comparator
+ 
 _Multithreading_
  
     1. Thread Safe Counter
@@ -44,7 +46,7 @@ _Cloud_
     1 Docker
     2 Virtualization vs Containerization
     3 AKS
-        
+        s
     
 _System Design_
 
@@ -89,6 +91,12 @@ _Java Interview_
 _Philsophy_
 
     https://humanparts.medium.com/good-enough-is-just-fine-1126b09cbea
+    
+    
+    //  Implement Hash Map
+    //  Complexity of treemap and mathematics to compute it
+    //  Sorting ALgorithm and compute complexity
+    // Desighn Online Store Database
     
  
     
