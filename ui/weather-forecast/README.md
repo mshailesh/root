@@ -6,13 +6,16 @@ Working forecast page as per the requirements.
 
 [Home page](https://github.com/mshailesh/root/blob/master/ui/weather-forecast/src/assets/screenshot.png)
 
-_Additional resource and libraries used_
+_Additional resources and libraries used_
 - [Angular Material](https://material.angular.io)
 - [Angular Flex Layout](https://github.com/angular/flex-layout)
 - [Erik Flowers' weather icons](https://github.com/erikflowers/weather-icons)
 - [OpenWeatherMap API](https://openweathermap.org/api)
 
+_Further Enhancements_ 
 
+ - Implement ngrx state management with the openweathermap api.
+ 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
