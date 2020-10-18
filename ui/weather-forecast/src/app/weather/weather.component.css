@@ -1,0 +1,73 @@
+.left {
+  text-align: left;
+}
+
+.large {
+  font-size: 48px;
+}
+
+.lighter {
+  color: gray;
+}
+
+.huge {
+  font-size: 128px;
+}
+
+.right {
+  text-align: right;
+}
+
+.delete {
+  cursor: pointer;
+  position: relative;
+  left: 32px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.spaced {
+  padding: 5px;
+}
+
+.no-margin {
+  margin-bottom: 0;
+}
+
+
+
+.temp {
+  font-family: Montserrat, sans-serif;
+}
+
+.fi {
+  font-size: 28px;
+}
+
+.sti {
+  font-size: 28px;
+}
+
+.search-form {
+  margin-top: 24px;
+}
+
+.search-btn {
+  margin-right: 5px;
+}
+
+.search-icon {
+  font-size: 20px;
+}
+
+.wi {
+  /* color: #924da3; */
+  color: #673ab7;
+}
+
+.err {
+  padding-bottom: 20px;
+}
+
+.text-grey-dark {
+  color: #4e616c;
+}
