@@ -1,95 +1,130 @@
 # root
 
+Certainly! I'll modify the email to specifically mention that while the provided example uses "Payment Manager" as the application identifier, the `appId` can and should be replaced with the appropriate originating channel as required. 
+
+---
+
+Subject: Updated JSON Schema and Example for Payment Transaction Data
+
+Dear [Upstream Contact's Name],
+
+I hope this email finds you in good health and spirits. As part of our initiative to enhance the data integration process, I am sharing with you the updated JSON schema for payment transaction data along with an illustrative example. This schema is vital for maintaining consistency and accuracy in our data exchange.
+
+**JSON Schema:**
+
+```json
 {
-  "_id": ObjectId("file_id"),
-  "filename": "document.pdf",
-  "contentType": "application/pdf",
-  "length": 1234567,  // Size of the file in bytes
-  "uploadDate": ISODate("2023-01-01T12:00:00Z"),
-  "metadata": {
-    "userId": ObjectId("user_id"),
-    "lobIds": ["lob_id_1", "lob_id_2"],
-    // Other metadata related to the document
-  }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string"
+    },
+    "senderAppId": {
+      "type": "string"
+    },
+    "OrgChnlPmtId": {
+      "type": "string"
+    },
+    "txSts": {
+      "type": "string",
+      "enum": ["ACTC", "RJCT"]
+    },
+    "pmtId": {
+      "type": "object",
+      "properties": {
+        "txId": {
+          "type": "string"
+        },
+        "endToEndId": {
+          "type": "string"
+        },
+        "instrId": {
+          "type": "string"
+        }
+      },
+      "required": ["txId", "instrId"]
+    },
+    "pmtErr": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cd": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "cretAppId": {
+            "type": "string"
+          },
+          "subCd": {
+            "type": "string"
+          }
+        },
+        "required": ["cd", "msg", "cretAppId", "subCd"]
+      }
+    }
+  },
+  "required": ["appId", "senderAppId", "OrgChnlPmtId", "txSts", "pmtId"]
 }
+```
 
+**Example Payload:**
 
+Please note that in the following examples, while `appId` is set to "PMWWB" (Payment Manager), this should be replaced with the appropriate originating channel identifier as required in your specific use case.
+
+- Success Case:
+```json
 {
-  "_id": ObjectId("chunk_id"),
-  "files_id": ObjectId("file_id"),
-  "n": 0,  // Chunk number
-  "data": BinData(0, "base64_encoded_chunk_data")
+   "appId": "PMWWB",  // Replace with the originating channel identifier
+   "senderAppId": "EPO",
+   "OrgChnlPmtId": "1111111111",
+   "txSts": "ACTC",
+   "pmtId": {
+       "txId" : "EPEP1234",
+       "endToEndId" : "E2E12345687", // Optional
+       "instrId": "1234567"
+   }
 }
+```
 
+- Rejection Case:
+```json
+{
+   "appId": "PMWWB",  // Replace with the originating channel identifier
+   "senderAppId": "EPO",
+   "OrgChnlPmtId": "1111111111",
+   "txSts": "RJCT",
+   "pmtId": {
+       "txId" : "EPEP1234",
+       "instrId": "1234567"
+   },
+   "pmtErr": [
+       {
+           "cd": "EPO_SE_1002",
+           "msg": "payment rejected reason",
+           "cretAppId": "EPO",
+           "subCd": "payment field name"
+       }
+   ]
+}
+```
 
-If you want to extend the document sharing system to support sharing documents with multiple Line of Business (LOB) entities, you can enhance the system's permission model. Below is an extended technical flow for sharing documents with other LOBs while considering permissions:
+The `endToEndId` field under `pmtId` is optional. The `pmtErr` array should be included only in cases of transaction rejection (`txSts` set to "RJCT").
 
-### Technical Flow for Sharing with Other LOBs:
+We kindly ask you to review the provided schema and examples and integrate them as per your system requirements. This step is crucial for ensuring a smooth and error-free data exchange process. Should you have any queries or need further assistance, please feel free to reach out.
 
-#### 1. **User Uploads Document:**
+Thank you for your cooperation and commitment to enhancing our data exchange efficiency.
 
-- **Frontend:**
-  1. User initiates document upload through the frontend application.
-  2. Frontend sends a document upload request to the backend.
+Best regards,
 
-- **Backend (DocumentService):**
-  1. Receives the document upload request.
-  2. Stores the document in GridFS (fs.files and fs.chunks collections).
-  3. Associates metadata (user ID, timestamp) with the document.
-  4. Sets default or user-specific permissions for the uploaded document, including permissions for the user's associated LOB.
-  5. Responds to the frontend with a success message or document ID.
+[Your Full Name]  
+[Your Position]  
+[Your Contact Information]  
+[Your Company/Organization]
 
-#### 2. **Bank Shares Document with User (Including LOBs):**
+---
 
-- **Frontend (Bank User Interface):**
-  1. Bank user selects a document to share and specifies the target user and associated LOBs.
-  2. Sends a document sharing request to the backend.
-
-- **Backend (DocumentService):**
-  1. Receives the document sharing request from the bank user.
-  2. Updates the permissions associated with the shared document to include the target user and specified LOBs.
-  3. Modifies the metadata in the fs.files collection to reflect the updated permissions.
-  4. Responds to the frontend with a success message.
-
-#### 3. **User Retrieves Document (Including LOBs):**
-
-- **Frontend:**
-  1. User requests to retrieve a specific document.
-  2. Frontend sends a document retrieval request to the backend.
-
-- **Backend (DocumentService):**
-  1. Queries the fs.files collection to retrieve metadata associated with the requested document.
-  2. Checks the user's permissions using the checkUserPermissions function, including checking LOB permissions.
-  3. If the user has the required permissions:
-      - Retrieves the document data from the fs.chunks collection.
-      - Combines and decodes the chunks to reconstruct the original document.
-      - Responds to the frontend with the reconstructed document data.
-  4. If access is denied:
-      - Responds to the frontend with an access denied message.
-
-### Enhanced Components:
-
-- **Frontend Application:**
-  - Initiates and handles user interactions related to document upload, sharing, and retrieval.
-
-- **Backend DocumentService:**
-  - Manages document-related operations, including storage, sharing, and retrieval.
-  - Interacts with GridFS to store and retrieve document data.
-
-- **GridFS (fs.files and fs.chunks):**
-  - Stores document data in a scalable manner.
-  - Stores metadata and chunks associated with each document.
-
-### Additional Considerations:
-
-- **LOB Permissions:**
-  - The system now considers permissions associated with specific LOBs when checking access rights.
-  - LOBs can be dynamically managed and associated with users and documents.
-
-- **Permission Model Extension:**
-  - The permission model is extended to include not only individual users but also groups, such as LOBs.
-
-- **Permission Editing:**
-  - The system may provide interfaces for users to edit and manage document permissions, including LOBs.
-
-This enhanced flow allows documents to be shared with specific LOBs, and users belonging to those LOBs can retrieve documents based on their permissions. The permissions can be as granular as needed, allowing for flexibility in document access management across different business entities.
+Feel free to adjust this template to better suit your specific context and the relationship with your upstream contact.
